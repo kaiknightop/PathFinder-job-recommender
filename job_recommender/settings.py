@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import dj_database_url
 from pathlib import Path
 import os
 from decouple import config
@@ -76,14 +76,9 @@ WSGI_APPLICATION = 'job_recommender.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('NAME'),
-        'USER' : config('USER'),
-        'PASSWORD': config('PASSWORD'),
-        'HOST': config('HOST'),
-        'PORT': config('PORT')
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('postgresql://job_recommender_db_user:TBk7WqaoDnwR5o3MgUvy9n34Wshxa6MC@dpg-d1mkndbe5dus73arg850-a.oregon-postgres.render.com/job_recommender_db')
+    )
 }
 
 # Password validation
