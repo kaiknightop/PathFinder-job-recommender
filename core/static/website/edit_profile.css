@@ -1,22 +1,36 @@
-body {
+/* edit_profile.css */
+
+body,html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f5f7fa;
+    margin: 0;
+}
+
+.edit-profile-container {
     padding: 20px;
+}
+
+/* Container styling */
+.edit-profile-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.edit-profile-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
 h2 {
     text-align: center;
-    color: white;
+    color: #333;
     margin-bottom: 30px;
-}
-
-form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    font-size: 28px;
 }
 
 form p {
@@ -41,20 +55,21 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #fdfdfd;
-    transition: border-color 0.3s ease-in-out;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-    border-color: #4a90e2;
+    border-color: #6C63FF;
+    box-shadow: 0 0 8px rgba(108,99,255,0.2);
     outline: none;
 }
 
-button[type="submit"] {
+.edit-profile-container form button[type="submit"] {
     display: block;
     width: 100%;
-    background-color: #4a90e2;
+    background-color: #6C63FF;
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -62,30 +77,27 @@ button[type="submit"] {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button[type="submit"]:hover {
+.edit-profile-container form button[type="submit"]:hover {
     background-color: #00C9A7;
+    transform: translateY(-2px);
 }
 
-
-
-/* Media queries*/
-
-/* Responsive for mobile screens */
+/* Media queries for responsiveness */
 @media screen and (max-width: 768px) {
     body {
         padding: 10px;
     }
 
-    form {
-        padding: 20px;
+    .edit-profile-container {
+        padding: 25px 20px;
         max-width: 90%;
     }
 
     h2 {
-        font-size: 22px;
+        font-size: 24px;
     }
 
     input[type="text"],
@@ -102,4 +114,125 @@ button[type="submit"]:hover {
         padding: 12px;
         font-size: 15px;
     }
+}
+a[download] {
+    display: none;
+}
+
+
+/* Profile picture preview container */
+.current-profile-pic {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.current-profile-pic img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #6C63FF;
+    display: block;
+    margin: 0 auto 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.current-profile-pic img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(0,0,0,0.15);
+    border-color: #00C9A7;
+}
+
+/* Change Picture button styling */
+.change-pic-btn {
+    display: inline-block;
+    background-color: #6C63FF;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.change-pic-btn:hover {
+    background-color: #00C9A7;
+    transform: translateY(-2px);
+}
+
+.remove-pic-btn {
+    background-color: #ff4d4d; /* red */
+    color: white;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: 500;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.remove-pic-btn:hover {
+    background-color: #e60000;
+    transform: translateY(-2px);
+}
+
+
+
+
+/* Hide the default file input */
+input[type="file"] {
+    display: none;
+}
+
+input[type="checkbox"] + label {
+    display: inline-block;
+    background-color: #ccc;
+    color: #333;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+}
+
+input[type="checkbox"]:checked + label {
+    background-color: #00C9A7;
+    color: white;
+}
+
+input[type="checkbox"] + label:hover {
+    background-color: #999;
+}
+
+/* html code(DELETED): <label for="id_profile_picture" class="file-upload-label">Choose New Picture</label> */
+.file-upload-label {
+    display: inline-block;
+    background-color: #6C63FF;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+    margin-left: 255px;
+}
+
+.file-upload-label:hover {
+    background-color: #00C9A7;
+    transform: translateY(-2px);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+    color: #444;
 }

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'website/user_list.css' %}">
+
+<div class="user-directory-page">
+    <div class="user-directory-header">
+        <div class="user-directory-container">
+            <h2>Collaborators</h2>
+            <form method="get" class="search-form">
+                <input type="text" name="q" placeholder="Search users..." value="{{ request.GET.q }}">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="user-list-scroll">
+        <div class="user-grid">
+            {% for u in users %}
+                <div class="user-card">
+                    <a href="{% url 'user_profile' u.username %}">
+                        <img src="{{ u.profile.get_profile_picture_url }}" 
+                             alt="{{ u.username }}'s Profile Picture"
+                             class="{% if 'default.jpg' in u.profile.get_profile_picture_url %}default-pic{% endif %}">
+                        <h3>{{ u.username }}</h3>
+                    </a>
+                </div>
+            {% empty %}
+                <p>No users found.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const defaultPics = document.querySelectorAll('.default-pic');
+
+    defaultPics.forEach(pic => {
+        const originalSrc = pic.src;
+        const hoverSrc = originalSrc.replace('default.jpg', 'default2.jpg');
+
+        pic.addEventListener('mouseenter', () => {
+            pic.src = hoverSrc;
+        });
+
+        pic.addEventListener('mouseleave', () => {
+            pic.src = originalSrc;
+        });
+    });
+});
+</script>
+{% endblock %}

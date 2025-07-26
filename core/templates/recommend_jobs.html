@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Recommendations</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'website/styles.css' %}">
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'website/styles.css' %}">
+
+<div class="recommend-container">
     <h1>Job Recommendations</h1>
 
     <form method="get" action="{% url 'search_jobs' %}">
@@ -17,6 +14,7 @@
 
     {% if similar_jobs %}
         <h2>Recommended Jobs (Local DB):</h2>
+        <div class="jobs-grid">
         {% for job in similar_jobs %}
             <div class="job-card">
                 <h3>{{ job.job_title }}</h3>
@@ -25,23 +23,26 @@
                 <p><strong>Details:</strong> {{ job.job_details|safe }}</p>
             </div>
         {% endfor %}
+        </div>
     {% endif %}
 
     {% if api_jobs %}
-        <h2>Recommended Jobs (Jooble API):</h2>
+        <h2>Recommended Jobs</h2>
+        <div class="jobs-grid">
         {% for job in api_jobs %}
             <div class="job-card">
                 <h3>{{ job.title }}</h3>
                 <p><strong>Company:</strong> {{ job.company }}</p>
                 <p><strong>Location:</strong> {{ job.location }}</p>
                 <p><strong>Type:</strong> {{ job.type }}</p>
-                <a href="{{ job.link }}" target="_blank">View Job</a>
+                <a href="{{ job.link }}" target="_blank" class="view-job-btn">View Job</a>
             </div>
         {% endfor %}
+        </div>
     {% endif %}
 
     {% if not similar_jobs and not api_jobs %}
         <p>No recommendations found. Try another keyword.</p>
     {% endif %}
-</body>
-</html>
+</div>
+{% endblock %}

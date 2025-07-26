@@ -3,11 +3,11 @@
 <head>
     <title>Login</title>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'website/login.css' %}">
+    <link rel="stylesheet" href="{% static 'website/login.css' %}">
 </head>
 <body>
-    <div class="container">
-        <h2>Login</h2>
+    <div class="auth-container">
+        <h2>Welcome Back</h2>
         {% if error %}
             <p class="error">{{ error }}</p>
         {% endif %}
@@ -16,7 +16,7 @@
             {{ form.as_p }}
             <button type="submit">Login</button>
         </form>
-        <p class="register-link">Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+        <p class="auth-link">Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
     </div>
 </body>
 </html>

@@ -21,6 +21,8 @@ from .models import Job
 from django.conf import settings
 from django.http import HttpResponse
 from dotenv import load_dotenv
+from django.contrib.auth.models import User
+from django.shortcuts import render, get_object_or_404
 
 load_dotenv()
 
@@ -143,23 +145,43 @@ def profile(request):
         'profile': profile
     })
 
+@login_required
+def update_profile_picture(request):
+    if request.method == 'POST':
+        profile = request.user.profile
+        if 'profile_picture' in request.FILES:
+            profile.profile_picture = request.FILES['profile_picture']
+            profile.save()
+            return redirect('profile')  # Redirect to profile page after saving
+    return redirect('profile')  # Redirect even if no file uploaded
+
 
 @login_required
 def edit_profile(request):
+    profile = request.user.profile
+
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)
-        profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=profile)
+
+        # If remove_picture button was clicked
+        if 'remove_picture' in request.POST:
+            profile.profile_picture.delete(save=True)  # deletes from MEDIA folder
+            profile.profile_picture = None    # set back to default
+            profile.save()
+            return redirect('edit_profile')
 
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            return redirect('profile')  # Redirect back to profile page
+            return redirect('profile')
 
     else:
         user_form = UserUpdateForm(instance=request.user)
-        profile_form = ProfileUpdateForm(instance=request.user.profile)
+        profile_form = ProfileUpdateForm(instance=profile)
 
     return render(request, 'edit_profile.html', {'user_form': user_form, 'profile_form': profile_form})
+
 
 
 
@@ -361,3 +383,19 @@ def evaluate_system(request):
         'recall': recall,
         'f1': f1
     })
+
+
+def user_list(request):
+    query = request.GET.get('q')
+    if query:
+        users = User.objects.filter(username__icontains=query)
+    else:
+        users = User.objects.all()
+    return render(request, 'user_list.html', {'users': users})
+
+def user_profile(request, username):
+    user = get_object_or_404(User, username=username)
+    profile, created = Profile.objects.get_or_create(user=user)
+    return render(request, 'user_profile.html', {'user': user, 'profile': profile})
+
+

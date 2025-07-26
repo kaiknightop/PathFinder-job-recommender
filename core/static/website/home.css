@@ -1,31 +1,22 @@
-
 h1 {
     text-align: center;
-    
     font-size: 40px;
     font-weight: bold;
-    background: linear-gradient(to right, #f8f8f8, #e0e0e0,  #b0b0b0, #808080,  #303030);
-    background-clip: text;
-    background-size: 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: animate-gradient 10s linear infinite;
+    color: #333; /* dark gray for headings */
 }
-@keyframes animate-gradient {
-    to {
-        background-position: 200%;
-    }
-}
- h2{
-    color: #ffffff;
- }
- h3{
-    color: #b1b1b1
- }
 
- .job-card{
-    color: #ffffff;
- }
+h2 {
+    color: #444; /* slightly lighter than h1 */
+}
+
+h3 {
+    color: #666; /* lighter subheadings */
+}
+
+.job-card {
+    color: #000; /* black text in job cards */
+}
+
 .hero-section {
     text-align: center;
     margin: 30px 0;
@@ -33,12 +24,12 @@ h1 {
 
 .hero-section p {
     font-size: 18px;
-    color: #b1b1b1;
+    color: #555; /* dark gray text */
     margin-bottom: 20px;
 }
 
 .hero-section a {
-    background: #6C63FF;
+    background: #6C63FF; /* your original blue */
     color: white;
     padding: 12px 24px;
     border-radius: 6px;
@@ -48,13 +39,13 @@ h1 {
 }
 
 .hero-section a:hover {
-    background-color: #00C9A7;
+    background-color: #00C9A7; /* teal hover */
 }
 
 .recommendation-box {
     margin-top: 30px;
     padding: 25px;
-    background-color: rgba(230, 230, 230, 0.5);
+    background-color: #f9f9f9; /* subtle light gray box */
     border-radius: 10px;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
 }
@@ -67,20 +58,21 @@ h1 {
 .job-item {
     padding: 20px;
     margin-bottom: 15px;
-    background-color: white;
-    border-left: 5px solid #007bff;
+    background-color: #fff;
+    border-left: 5px solid #6C63FF; /* blue accent */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    color: #000;
 }
 
-.similar{
-    color: white;
+.similar {
+    color: #6C63FF; /* blue links for similarity */
     text-decoration: none;
 }
-.similar:hover{
+
+.similar:hover {
     text-decoration: underline;
 }
-
 
 .search-form {
     text-align: center;
@@ -108,7 +100,6 @@ h1 {
 .search-form button:hover {
     background-color: #00C9A7;
 }
-
 
 /*Media Query*/
 /* Mobile responsiveness */
@@ -162,4 +153,52 @@ h1 {
         flex-direction: column;
         align-items: center;
     }
+}
+
+/* Job Grid Layout */
+.job-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Updated job-card styles */
+.job-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.job-card h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.job-card p {
+    color: #555;
+    margin: 5px 0;
+}
+
+.job-card a {
+    display: inline-block;
+    margin-top: 10px;
+    background: #6C63FF;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.job-card a:hover {
+    background: #00C9A7;
 }

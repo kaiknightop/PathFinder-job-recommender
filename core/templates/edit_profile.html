@@ -1,12 +1,92 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-  <link rel="stylesheet" href="{% static 'website/edit_profile.css' %}">
+<link rel="stylesheet" href="{% static 'website/edit_profile.css' %}">
+
+<div class="edit-profile-container">
   <h2>Edit Profile</h2>
   <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
+
     {{ user_form.as_p }}
-    {{ profile_form.as_p }}
+
+    <!-- Profile picture preview and change button -->
+    <div class="current-profile-pic">
+      {% if profile_form.instance.profile_picture %}
+        <img id="profilePreview" src="{{ profile_form.instance.profile_picture.url }}" alt="Current Profile Picture">
+        <label for="id_profile_picture" class="change-pic-btn">Change Picture</label>
+        <label for="removePicture" class="remove-pic-btn">Remove Picture</label>
+        <input type="submit" id="removePicture" name="remove_picture" style="display:none;">
+      {% else %}
+        <img id="profilePreview" src="{% static 'website/default.jpg' %}" alt="Default Profile Picture">
+        <label for="id_profile_picture" class="change-pic-btn">Upload Picture</label>
+      {% endif %}
+    </div>
+
+    <!-- Hidden file input and custom styled choose button -->
+    <input type="file" id="id_profile_picture" name="profile_picture" accept="image/*" style="display: none;">
+
+    <!-- Render remaining fields individually with form-group wrappers -->
+    <div class="form-group">
+      {{ profile_form.bio.label_tag }}
+      {{ profile_form.bio }}
+    </div>
+
+    <div class="form-group">
+      {{ profile_form.location.label_tag }}
+      {{ profile_form.location }}
+    </div>
+
+    <div class="form-group">
+      {{ profile_form.skills.label_tag }}
+      {{ profile_form.skills }}
+      <small style="color: #666; font-size: 13px;">Separate skills using commas, e.g., Python, Django, SQL</small>
+    </div>
+
+    <div class="form-group">
+      {{ profile_form.title.label_tag }}
+      {{ profile_form.title }}
+    </div>
+
+    <div class="form-group" id="custom_title_div" style="display: none;">
+      {{ profile_form.custom_title.label_tag }}
+      {{ profile_form.custom_title }}
+    </div>
+
     <button type="submit">Save Changes</button>
   </form>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const titleSelect = document.getElementById('id_title');
+  const customTitleDiv = document.getElementById('custom_title_div');
+
+  function toggleCustomTitle() {
+    if (titleSelect && customTitleDiv) {
+      if (titleSelect.value === 'Other') {
+        customTitleDiv.style.display = 'block';
+      } else {
+        customTitleDiv.style.display = 'none';
+      }
+    }
+  }
+
+  toggleCustomTitle();
+  if (titleSelect) {
+    titleSelect.addEventListener('change', toggleCustomTitle);
+  }
+
+  const fileInput = document.getElementById('id_profile_picture');
+  const preview = document.getElementById('profilePreview');
+
+  fileInput.addEventListener('change', function(e) {
+    const [file] = fileInput.files;
+    if (file) {
+      preview.src = URL.createObjectURL(file);
+    }
+  });
+});
+</script>
+
 {% endblock %}

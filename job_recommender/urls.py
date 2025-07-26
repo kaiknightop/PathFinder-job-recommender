@@ -33,8 +33,8 @@ urlpatterns = [
     path('similar_users/', views.similar_users_recommendations, name='similar_users'),
     path('search/', views.search_jobs, name='search_jobs'),
     path('evaluate/', views.evaluate_system, name='evaluate_system'),
+    path('update_profile_picture/', views.update_profile_picture, name='update_profile_picture'),
+    path('users/', views.user_list, name='user_list'),
+    path('users/<str:username>/', views.user_profile, name='user_profile'),
 
-]
-
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

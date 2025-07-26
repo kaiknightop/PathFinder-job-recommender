@@ -1,29 +1,9 @@
-/* Background Slideshow using ::before */
+/* Remove background slideshow */
 body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-size: cover;
-    background-position: center;
-    animation: backgroundSlide 30s infinite;
-    opacity: 0.75;
+    display: none;
 }
 
-/* Slideshow keyframes */
-@keyframes backgroundSlide {
-    0% { background-image: linear-gradient(rgba(0,0,0,0.7)),  url("/static/website/images/image1.jpg"); }
-    20% { background-image: linear-gradient(rgba(0,0,0,0.7)),  url("/static/website/images/image2.jpg"); }
-    40% { background-image: linear-gradient(rgba(0,0,0,0.7)),  url("/static/website/images/image3.jpg"); }
-    60% { background-image: linear-gradient(rgba(0,0,0,0.7)),  url("/static/website/images/image4.jpg"); }
-    80% { background-image: linear-gradient(rgba(0,0,0,0.7)),  url("/static/website/images/image5.jpg"); }
-    100% { background-image: linear-gradient(rgba(0,0,0,0.7)),  url("/static/website/images/image1.jpg"); }
-}
-
-/* Apply full height and layout structure */
+/* General body styles */
 html, body {
     height: 100%;
     margin: 0;
@@ -31,94 +11,116 @@ html, body {
     display: flex;
     flex-direction: column;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #2F2F2F;
+    color: #000; /* changed to black */
+    background: #fff; /* white background */
 }
 
-/* Wrapper for layout */
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    will-change: opacity;
-    flex: 1;
+body {
+    padding-top: 70px; /* adjust to match actual navbar height */
 }
 
-/* Sticky nav */
+/* Navbar redesign */
 nav {
-    position: sticky;
+    position: fixed; /* changed from sticky */
     top: 0;
+    left: 0;
+    width: 96%; /* ensures full span */
     background-color: white;
-    padding: 15px 0;
-    text-align: center;
+    padding: 15px 30px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1;
+    z-index: 9999; /* stays above all content */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-nav a {
-    color: blue;
+.nav-right a {
+    color: #333; /* dark gray links */
     text-decoration: none;
-    margin: 0 20px;
+    margin-left: 20px;
     font-weight: 500;
     font-size: 16px;
 }
 
-nav a:hover {
+.nav-right a:hover {
     text-decoration: underline;
 }
 
-/* Main content */
+/* Container adjustments */
 .container {
     padding: 30px;
     max-width: 1000px;
     margin: 30px auto;
     background: transparent;
     border-radius: 12px;
-    color: white;
+    color: #000; /* black text */
     flex: 1;
 }
 
-/* Footer always at bottom */
+/* Footer */
 footer {
     text-align: center;
     padding: 15px;
     background: transparent;
-    color: rgb(230, 215, 215);
+    color: #333;
     font-size: 14px;
     margin-top: auto;
 }
 
-
-/*Media query*/
-/* Responsive layout for mobile screens */
+/* Responsive navbar */
 @media screen and (max-width: 768px) {
     nav {
-        padding: 10px 0;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    nav a {
-        margin: 0 10px;
-        font-size: 14px;
+    .nav-right {
+        margin-top: 10px;
     }
 
-    .container {
-        padding: 20px;
-        margin: 20px 10px;
-        font-size: 15px;
+    .nav-right a {
+        margin-left: 0;
+        margin-right: 10px;
     }
+}
 
-    footer {
-        font-size: 12px;
-        padding: 10px;
-    }
 
-    h1, h2, h3 {
-        font-size: 20px;
-        text-align: center;
-    }
+/* Logo container */
+.nav-left .logo {
+    display: block;
+    width: auto; /* allow natural width */
+    max-width: 170px; /* adjust based on your desired navbar space usage */
+    height: auto;
+}
 
-    body {
-        font-size: 14px;
-    }
+/* Logo image styling */
+.nav-left .logo img,
+.logo-img {
+    display: block;
+    height: 35px; /* fixed height for navbar consistency */
+    width: auto; /* maintain aspect ratio */
+    max-width: 100%; /* prevent overflow */
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+
+.logout-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 20px; /* same as other links */
+  color: #333;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.logout-btn:hover {
+  text-decoration: underline;
+}
+
+nav .logout-btn {
+  font-weight: 500;
+  font-size: 16px;
 }

@@ -1,0 +1,242 @@
+/* user_list.css */
+
+
+
+.user-directory-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 28px;
+}
+
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+.search-form {
+    margin-bottom: 40px;
+}
+
+.search-form input[type="text"] {
+    padding: 12px 15px;
+    width: 60%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.search-form button {
+    padding: 12px 20px;
+    background-color: #6C63FF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-form button:hover {
+    background-color: #00C9A7;
+    transform: translateY(-2px);
+}
+
+/* Grid layout with 4 per row */
+.user-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    justify-items: center;
+}
+
+/* User card styling */
+.user-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    max-width: 200px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Profile picture circular styling */
+.user-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* Username styling */
+.user-card h3 {
+    color: #333;
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 992px) {
+    .user-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .user-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .user-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .search-form input[type="text"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .search-form button {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+.default-pic {
+    transition: all 0.3s ease;
+}
+
+.default-pic:hover {
+    content: url('/static/website/default2.jpg');
+    transform: scale(1.05);
+}
+
+.user-card img {
+    transition: transform 0.3s ease;
+}
+
+.user-card img:not(.default-pic):hover {
+    transform: scale(1.05);
+}
+
+
+
+/* Main container with full height minus navbar (approx 70px adjust if needed) */
+.user-directory-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    margin-top: -100px;
+}
+
+
+/* Header (Collaborators + Search) sticky only within container */
+.user-directory-header {
+    position: sticky;
+    top: 0px; /* matches navbar height */
+    background-color: #fff;
+    z-index: 10;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.user-directory-header h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 28px;
+}
+
+.search-form {
+    margin-bottom: 0; /* remove bottom margin for clean stickiness */
+}
+
+.search-form input[type="text"] {
+    padding: 12px 15px;
+    width: 60%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.search-form button {
+    padding: 12px 20px;
+    background-color: #6C63FF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-form button:hover {
+    background-color: #00C9A7;
+    transform: translateY(-2px);
+}
+
+/* Scrollable user list area */
+.user-list-scroll {
+    flex: 1;
+    overflow-y: auto;
+    background: #f4f6f9;
+    padding: 40px 20px;
+}
+
+/* User grid styling remains same */
+.user-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 60px;
+    justify-items: center;
+    padding: 20px 20px;
+}
+
+/* (Your existing .user-card, .default-pic, and hover effects remain unchanged) */
+
+
+
+.user-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    max-width: 200px;
+    min-height: 150px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+

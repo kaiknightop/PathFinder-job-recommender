@@ -9,7 +9,7 @@
     <button type="submit">Search</button>
 </form>
 
-<h1>Welcome to the Job Market Analysis and Hybrid Recommendation System</h1>
+<h1>Discover Jobs That Fit You Perfectly.</h1>
 
 <div class="hero-section">
     <p>Get personalized job recommendations based on your skills and location.</p>
@@ -22,7 +22,7 @@
 <h2>Recommended Jobs for You</h2>
 
 {% if jobs %}
-    <div class="job-listings">
+    <div class="job-grid">
         {% for job in jobs %}
             <div class="job-card">
                 <h3>{{ job.title }}</h3>
