@@ -8,7 +8,7 @@ profile_pics
 __pycache__/
 *.py[cod]
 *.sqlite3
-
+.env
 # Virtual Environment
 env/
 venv/
