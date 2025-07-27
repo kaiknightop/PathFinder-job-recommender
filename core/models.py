@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.templatetags.static import static
+from django.conf import settings
+import os
 
 
 # Create your models here.
@@ -28,15 +30,11 @@ class Profile(models.Model):
     title = models.CharField(max_length=50, blank=True, null=True)
 
     def get_profile_picture_url(self):
-        if self.profile_picture and hasattr(self.profile_picture, 'url'):
-            # Check if it's default.jpg in MEDIA (uploaded default)
-            if 'default.jpg' in self.profile_picture.name:
-                return static('website/default.jpg')
-            return self.profile_picture.url
+        if self.profile_picture:
+            file_path = os.path.join(settings.MEDIA_ROOT, str(self.profile_picture))
+            if os.path.exists(file_path) and self.profile_picture.name != 'default.jpg':
+                return self.profile_picture.url
         return static('website/default.jpg')
-
-
-
 
     def __str__(self):
         return f"{self.user.username}'s Profile"
