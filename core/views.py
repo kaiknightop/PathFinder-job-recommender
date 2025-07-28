@@ -27,7 +27,6 @@ from django.shortcuts import render, get_object_or_404
 load_dotenv()
 
 
-@login_required
 def home(request):
     jobs = []
 
@@ -77,7 +76,6 @@ def home(request):
 
         except Profile.DoesNotExist:
             print("Profile not found")
-
     return render(request, 'home.html', {'jobs': jobs})
 
 
@@ -293,7 +291,7 @@ def similar_users_jobs(request):
     similar_jobs = list(set(similar_jobs))
     return render(request, 'similar_users.html', {'similar_jobs': similar_jobs})
 
-
+@login_required
 def search_jobs(request):
     keyword = request.GET.get('keyword', '')
     similar_jobs = []
@@ -384,7 +382,7 @@ def evaluate_system(request):
         'f1': f1
     })
 
-
+@login_required
 def user_list(request):
     query = request.GET.get('q')
     if query:
@@ -393,6 +391,7 @@ def user_list(request):
         users = User.objects.all()
     return render(request, 'user_list.html', {'users': users})
 
+@login_required
 def user_profile(request, username):
     user = get_object_or_404(User, username=username)
     profile, created = Profile.objects.get_or_create(user=user)

@@ -18,7 +18,6 @@
 
 <a class="similar" href="{% url 'similar_users' %}">👥 Others with similar profiles also viewed…</a>
 
-
 <h2>Recommended Jobs for You</h2>
 
 {% if jobs %}
@@ -36,8 +35,15 @@
         {% endfor %}
     </div>
 {% else %}
-    <div class="recommendation-box">
-        <p>No recommendations available yet. Update your profile to see personalized job suggestions.</p>
+    <div class="recommendation-box empty-jobs">
+        <img src="{% static 'website/images/empty_jobs.png' %}" alt="No jobs found" class="empty-image">
+        <h3>You're almost there!</h3>
+        <p>We couldn’t find any jobs for you just yet.</p>
+        {% if user.is_authenticated %}
+            <p><strong>Already signed in?</strong> <a href="{% url 'profile' %}">Update your profile</a> with your skills and location to get matched instantly.</p>
+        {% else %}
+            <p><strong>New here?</strong> <a href="{% url 'register' %}">Create an account</a> or <a href="{% url 'login' %}">log in</a> to start seeing personalized job recommendations.</p>
+        {% endif %}
     </div>
 {% endif %}
 {% endblock %}

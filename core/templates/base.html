@@ -18,13 +18,19 @@
 
             <!-- Hides on mobile -->
             <div class="nav-right desktop-nav">
-                <a href="{% url 'home' %}">Home</a>
-                <a href="{% url 'profile' %}">Profile</a>
-                <a href="{% url 'user_list' %}">Users</a>
-                <form action="{% url 'logout' %}" method="post" style="display:inline;">
-                    {% csrf_token %}
-                    <button type="submit" class="nav-link logout-btn">Logout</button>
-                </form>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'home' %}">Home</a>
+                    <a href="{% url 'profile' %}">Profile</a>
+                    <a href="{% url 'user_list' %}">Users</a>
+                    <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="nav-link logout-btn">Logout</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'home' %}">Home</a>
+                    <a href="{% url 'login' %}">Login</a>
+                    <a href="{% url 'register' %}">Register</a>  <!-- assuming you have a register view -->
+                {% endif %}
             </div>
 
             <!-- Shows only on mobile -->
@@ -35,13 +41,19 @@
         <!-- Sidebar for mobile -->
         <div id="mobileSidebar" class="mobile-sidebar">
             <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">×</a>
-            <a href="{% url 'home' %}">Home</a>
-            <a href="{% url 'profile' %}">Profile</a>
-            <a href="{% url 'user_list' %}">Users</a>
-            <form action="{% url 'logout' %}" method="post">
-                {% csrf_token %}
-                <button type="submit" class="logout-btn">Logout</button>
-            </form>
+            {% if user.is_authenticated %}
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'profile' %}">Profile</a>
+                <a href="{% url 'user_list' %}">Users</a>
+                <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="nav-link logout-btn">Logout</button>
+                </form>
+            {% else %}
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'register' %}">Register</a>  <!-- assuming you have a register view -->
+            {% endif %}
         </div>
 
         <div class="container">
