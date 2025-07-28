@@ -104,49 +104,69 @@ p.error {
     text-decoration: underline;
 }
 
-/* Breakpoint: phones (≤480px) */
+/* === Responsive Fix ONLY === */
+
+/* Phones (≤480px) */
 @media screen and (max-width: 480px) {
     .auth-container {
-        padding: 25px 18px;
+        margin: 80px auto !important;
+        padding: 25px 15px !important;
+        width: 90% !important;
     }
 
-    h2 {
-        font-size: 22px;
+    .auth-container h2 {
+        font-size: 22px !important;
+        text-align: center;
     }
 
-    input, button {
-        font-size: 14px;
+    .auth-container input,
+    .auth-container button {
+        font-size: 14px !important;
+        padding: 10px 12px !important;
     }
 
     .auth-link {
-        font-size: 13px;
+        font-size: 13px !important;
+        text-align: center;
     }
 }
 
-/* Breakpoint: medium phones / large phones (481px–767px) */
-@media screen and (max-width: 767px) and (min-width: 481px) {
+/* Medium phones (481px–767px) */
+@media screen and (min-width: 481px) and (max-width: 767px) {
     .auth-container {
-        margin-top: 50px;
-        padding: 30px 22px;
+        margin: 100px auto !important;
+        padding: 30px 20px !important;
+        width: 85% !important;
+    }
+
+    .auth-container h2 {
+        font-size: 24px !important;
+    }
+
+    .auth-container input,
+    .auth-container button {
+        font-size: 15px !important;
     }
 }
 
-/* Breakpoint: tablets (768px–1024px) */
-@media screen and (max-width: 1024px) and (min-width: 768px) {
+/* Tablets (768px–1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
     .auth-container {
-        margin-top: 80px;
-        max-width: 500px;
-        padding: 50px 40px;
+        margin: 120px auto !important;
+        max-width: 500px !important;
+        padding: 40px 30px !important;
     }
 
-    input, button {
-        font-size: 16px;
+    .auth-container h2 {
+        font-size: 26px !important;
     }
 
-    h2 {
-        font-size: 28px;
+    .auth-container input,
+    .auth-container button {
+        font-size: 16px !important;
     }
 }
+
 
 
 form p {
