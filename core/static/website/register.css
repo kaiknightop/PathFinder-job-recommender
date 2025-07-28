@@ -105,38 +105,46 @@ p.error {
 }
 
 /* === Responsive Fix ONLY === */
-/* === Phones (≤480px): Center the box vertically === */
 @media screen and (max-width: 480px) {
-    /* 1. Center the whole body flexbox */
-    body {
-        display: flex;
-        justify-content: center; /* horizontal center */
-        align-items: center;     /* vertical center */
+    html, body {
+        height: 100%;
         margin: 0;
         padding: 0;
+        overflow-x: hidden;
     }
 
-    /* 2. Remove any hard-coded top margin on the container */
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: linear-gradient(135deg, #6C63FF, #00C9A7);
+    }
+
     .auth-container {
-        margin: 0;        /* kill the 60px top margin */
         width: 90%;
-        max-width: 360px; /* a tighter max for phones */
+        max-width: 360px;
+        margin: 0;
         padding: 25px 20px;
+        box-sizing: border-box;
+        text-align: center;
     }
 
-    /* 3. Tweak typography a bit */
     .auth-container h2 {
-        font-size: 22px;
+        font-size: 20px;
     }
-    .auth-container input,
-    .auth-container button {
+
+    input,
+    button {
         font-size: 14px;
         padding: 10px;
     }
+
     .auth-link {
         font-size: 13px;
     }
 }
+
 
 
 /* Medium phones (481px–767px) */
