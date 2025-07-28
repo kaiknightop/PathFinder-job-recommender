@@ -106,30 +106,42 @@ p.error {
 
 /* === Responsive Fix ONLY === */
 
-/* Phones (≤480px) */
+/* === Phones (≤480px) === */
 @media screen and (max-width: 480px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
     .auth-container {
-        margin: 80px auto !important;
-        padding: 25px 15px !important;
-        width: 90% !important;
+        width: 90%;
+        padding: 25px 20px;
+        box-sizing: border-box;
+        margin: auto;
     }
 
     .auth-container h2 {
-        font-size: 22px !important;
+        font-size: 22px;
         text-align: center;
     }
 
     .auth-container input,
     .auth-container button {
-        font-size: 14px !important;
-        padding: 10px 12px !important;
+        font-size: 14px;
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .auth-link {
-        font-size: 13px !important;
+        font-size: 13px;
         text-align: center;
     }
 }
+
 
 /* Medium phones (481px–767px) */
 @media screen and (min-width: 481px) and (max-width: 767px) {
