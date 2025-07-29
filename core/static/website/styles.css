@@ -148,3 +148,9 @@ h2 {
         grid-template-columns: 1fr;
     }
 }
+
+
+.adsterra-native {
+    text-align: center;
+    margin: 25px 0;
+}
