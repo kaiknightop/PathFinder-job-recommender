@@ -79,7 +79,6 @@ def home(request):
     return render(request, 'home.html', {'jobs': jobs})
 
 
-
 def register(request):
     if request.method == "POST":
         form = RegisterForm(request.POST)
