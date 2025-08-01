@@ -11,7 +11,7 @@ Landing page for exploring job recommendations
 Recommendation Page
 
 ![Home Page](core/screenshots/search.png)  
-Search PAge
+Search Page
 
 ![Home Page](core/screenshots/profile.png)  
 Profile Page
@@ -34,7 +34,7 @@ Register Page
 ![Home Page](core/screenshots/mobile_home.jpg)  
 Mobile view of home page
 
-![Home Page](core/screenshots/mobile_home2.jpg)  
+![Home Page](core/screenshots/mobile_home_2.jpg)  
 Mobile view of home page (not logged in)
 
 ![Home Page](core/screenshots/mobile_login.jpg)  
