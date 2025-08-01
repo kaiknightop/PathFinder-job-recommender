@@ -1,5 +1,25 @@
-# Improved Job Recommender System- (Will Upload soon)
-This project is a Django-based web application that helps users find personalized job recommendations based on their skills, location, and real-time job data fetched using the Jooble API.
+# PathFinder Job Recommender 🔍💼
+
+PathFinder is a personalized job recommendation web app built with Django and PostgreSQL. It suggests relevant job opportunities based on user skills, preferences, and real-time data from Jooble API. Designed with a clean, mobile-responsive UI, it offers a fast and intuitive experience for users to discover suitable career paths.
+
+## 🧰 Tech Stack
+
+- **Backend:** Django
+- **Database:** PostgreSQL
+- **Frontend:** HTML5, CSS3, JavaScript (with Bootstrap)
+- **APIs Used:** SerpAPI (for Google Jobs data)
+- **Hosting:** Render
+- **Version Control:** Git & GitHub
+
+## ✨ Features
+
+- Real-time job search with live listings from Google Jobs
+- Smart job matching based on user input and filtering
+- Clean, responsive design for both desktop and mobile
+- User authentication system (Register / Login / Logout)
+- Contact form for inquiries and feedback
+- Admin panel via Django Admin for content control
+
 
 
 Screenshots
