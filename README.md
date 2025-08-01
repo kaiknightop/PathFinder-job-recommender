@@ -4,16 +4,16 @@ PathFinder is a personalized job recommendation web app built with Django and Po
 
 ## 🧰 Tech Stack
 
-- **Backend:** Django
+- **Backend:** Django (Python)
 - **Database:** PostgreSQL
-- **Frontend:** HTML5, CSS3, JavaScript (with Bootstrap)
-- **APIs Used:** SerpAPI (for Google Jobs data)
+- **Frontend:** HTML and CSS
+- **APIs Used:** Jooble API
 - **Hosting:** Render
 - **Version Control:** Git & GitHub
 
 ## ✨ Features
 
-- Real-time job search with live listings from Google Jobs
+- Real-time job search with live listings from Jooble API
 - Smart job matching based on user input and filtering
 - Clean, responsive design for both desktop and mobile
 - User authentication system (Register / Login / Logout)
