@@ -3,7 +3,8 @@ This project is a Django-based web application that helps users find personalize
 
 
 Screenshots
-![Home Page](core/static/screenshots/home.png)  
+
+![Home Page](core/screenshots/home.png)  
 Landing page for exploring job recommendations
 
 ![Home Page](core/static/screenshots/recommendation.png)  
