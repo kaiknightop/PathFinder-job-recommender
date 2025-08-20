@@ -1,19 +1,21 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
+<head>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'website/similar.css' %}" />
+</head>
 <h2>👥 Others with similar profiles also viewed…</h2>
 
 {% if recommended_jobs %}
-    <div class="job-listings">
-        {% for job in recommended_jobs %}
-        <div class="job-card">
-            <h3>{{ job.job_title }}</h3>
-            <p><strong>Company:</strong> {{ job.company_name }}</p>
-            <p><strong>Location:</strong> {{ job.location }}</p>
-            <a href="{{ job.job_link }}" target="_blank">View Job</a>
-        </div>
-        {% endfor %}
-    </div>
+<div class="job-listings">
+  {% for job in recommended_jobs %}
+  <div class="job-card">
+    <h3>{{ job.job_title }}</h3>
+    <p><strong>Company:</strong> {{ job.company_name }}</p>
+    <p><strong>Location:</strong> {{ job.location }}</p>
+    <a href="{{ job.job_link }}" target="_blank">View Job</a>
+  </div>
+  {% endfor %}
+</div>
 {% else %}
-    <p>No collaborative recommendations yet.</p>
-{% endif %}
-{% endblock %}
+<p>No collaborative recommendations yet.</p>
+{% endif %} {% endblock %}

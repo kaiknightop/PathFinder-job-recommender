@@ -1,0 +1,11 @@
+/*fix*/
+.container {
+  padding: 30px;
+  max-width: 1000px;
+  min-height: 400px;
+  margin: 30px auto;
+  background: transparent;
+  border-radius: 12px;
+  color: #000; /* black text */
+  flex: 1;
+}

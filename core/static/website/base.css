@@ -1,92 +1,91 @@
 /* Remove background slideshow */
 body::before {
-    display: none;
+  display: none;
 }
 
 /* General body styles */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #000; /* changed to black */
-    background: #fff; /* white background */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #000; /* changed to black */
+  background: #fff; /* white background */
 }
 
 body {
-    padding-top: 70px; /* adjust to match actual navbar height */
+  padding-top: 70px; /* adjust to match actual navbar height */
 }
 
 /* Navbar redesign */
 nav {
-    position: fixed; /* changed from sticky */
-    top: 0;
-    left: 0;
-    width: 96%; /* ensures full span */
-    background-color: white;
-    padding: 15px 30px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 9999; /* stays above all content */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  position: fixed; /* changed from sticky */
+  top: 0;
+  left: 0;
+  width: 96%; /* ensures full span */
+  background-color: white;
+  padding: 15px 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 9999; /* stays above all content */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav-right a {
-    color: #333; /* dark gray links */
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: 500;
-    font-size: 16px;
+  color: #333; /* dark gray links */
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .nav-right a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* Container adjustments */
 .container {
-    padding: 30px;
-    max-width: 1000px;
-    margin: 30px auto;
-    background: transparent;
-    border-radius: 12px;
-    color: #000; /* black text */
-    flex: 1;
+  padding: 30px;
+  max-width: 1000px;
+  margin: 30px auto;
+  background: transparent;
+  border-radius: 12px;
+  color: #000; /* black text */
+  flex: 1;
 }
 
 /* Footer */
 footer {
-    text-align: center;
-    padding: 15px;
-    background: transparent;
-    color: #333;
-    font-size: 14px;
-    margin-top: auto;
+  text-align: center;
+  padding: 15px;
+  background: transparent;
+  color: #333;
+  font-size: 14px;
+  margin-top: auto;
 }
-
 
 /* Logo container */
 .nav-left .logo {
-    display: block;
-    width: auto; /* allow natural width */
-    max-width: 170px; /* adjust based on your desired navbar space usage */
-    height: auto;
+  display: block;
+  width: auto; /* allow natural width */
+  max-width: 170px; /* adjust based on your desired navbar space usage */
+  height: auto;
 }
 
 /* Logo image styling */
 .nav-left .logo img,
 .logo-img {
-    display: block;
-    height: 35px; /* fixed height for navbar consistency */
-    width: auto; /* maintain aspect ratio */
-    max-width: 100%; /* prevent overflow */
-    object-fit: contain;
-    margin-right: 10px;
+  display: block;
+  height: 35px; /* fixed height for navbar consistency */
+  width: auto; /* maintain aspect ratio */
+  max-width: 100%; /* prevent overflow */
+  object-fit: contain;
+  margin-right: 10px;
 }
-
 
 .logout-btn {
   background: none;
@@ -108,84 +107,83 @@ nav .logout-btn {
   font-size: 16px;
 }
 
-
 /* existing styles ... */
 
 /* Mobile toggle button */
 .mobile-menu-toggle {
-    display: none;
-    font-size: 28px;
-    cursor: pointer;
-    color: #333;
-    margin-right: 25px;
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #333;
+  margin-right: 25px;
 }
 
 /* Sidebar menu */
 .mobile-sidebar {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 10000;
-    top: 0;
-    right: 0;
-    background-color: white;
-    overflow-x: hidden;
-    transition: 0.3s;
-    padding-top: 60px;
-    box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  right: 0;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
 }
 
 .mobile-sidebar a,
 .mobile-sidebar form {
-    padding: 10px 30px;
-    text-decoration: none;
-    font-size: 18px;
-    color: #333;
-    display: block;
-    transition: 0.3s;
+  padding: 10px 30px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #333;
+  display: block;
+  transition: 0.3s;
 }
 
 .mobile-sidebar a:hover,
 .mobile-sidebar button:hover {
-    background-color: #f4f4f4;
+  background-color: #f4f4f4;
 }
 
 .mobile-sidebar .logout-btn {
-    border: none;
-    background: none;
-    font-size: 18px;
-    text-align: left;
-    width: 100%;
-    padding: 10px 0;
-    color: #333;
-    cursor: pointer;
-    margin-left: -1px;
+  border: none;
+  background: none;
+  font-size: 18px;
+  text-align: left;
+  width: 100%;
+  padding: 10px 0;
+  color: #333;
+  cursor: pointer;
+  margin-left: -1px;
 }
 
 .mobile-sidebar .closebtn {
-    position: absolute;
-    top: 10px;
-    right: 25px;
-    font-size: 36px;
-    text-decoration: none;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 36px;
+  text-decoration: none;
 }
 
 /* Sidebar open state */
 .mobile-sidebar.active {
-    width: 250px;
+  width: 250px;
 }
 
 /* Responsive navbar */
 @media screen and (max-width: 768px) {
-    .nav-right.desktop-nav {
-        display: none;
-    }
+  .nav-right.desktop-nav {
+    display: none;
+  }
 
-    .mobile-menu-toggle {
-        display: block;
-    }
+  .mobile-menu-toggle {
+    display: block;
+  }
 
-    nav {
-        padding: 15px 20px;
-    }
+  nav {
+    padding: 15px 20px;
+  }
 }
