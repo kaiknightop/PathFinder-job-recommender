@@ -37,4 +37,4 @@ urlpatterns = [
     path('users/', views.user_list, name='user_list'),
     path('users/<str:username>/', views.user_profile, name='user_profile'),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
