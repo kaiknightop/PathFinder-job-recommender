@@ -147,6 +147,12 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # After your MEDIA settings
+# Add this at the end
 if not DEBUG:
-    # Use WhiteNoise for media files in production
-    WHITENOISE_MAX_AGE = 31536000  # 1 year
+    # Force Django to serve media files in production
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    
+    # Configure WhiteNoise to serve media files
+    WHITENOISE_USE_FINDERS = True
+    WHITENOISE_SKIP_COMPRESS_EXTENSIONS = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'zip', 'gz', 'tgz', 'bz2', 'tbz', 'xz', 'br', 'mp4', 'avi', 'mov']

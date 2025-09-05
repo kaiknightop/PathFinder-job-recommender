@@ -30,10 +30,9 @@ class Profile(models.Model):
     title = models.CharField(max_length=50, blank=True, null=True)
 
     def get_profile_picture_url(self):
-        if self.profile_picture:
-            file_path = os.path.join(settings.MEDIA_ROOT, str(self.profile_picture))
-            if os.path.exists(file_path) and self.profile_picture.name != 'default.jpg':
-                return self.profile_picture.url
+        """Return profile picture URL or default image"""
+        if self.profile_picture and self.profile_picture.name != 'default.jpg':
+            return self.profile_picture.url  # This works in both dev and production
         return static('website/default.jpg')
 
     def __str__(self):
