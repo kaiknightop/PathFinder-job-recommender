@@ -15,11 +15,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, re_path
 from django.contrib.auth import views as auth_views
 from core import views #for custom registration
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.static import serve  
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -38,6 +39,11 @@ urlpatterns = [
     path('users/<str:username>/', views.user_profile, name='user_profile'),
 
 ]
-# Force serve media files in ALL environments (including production)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# ✅ Static + Media serving
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+# ✅ Force Django to serve media files even when DEBUG=False
+if settings.DEBUG or getattr(settings, "SERVE_MEDIA", False):
+    urlpatterns += [
+        re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+    ]
