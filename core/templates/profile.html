@@ -12,8 +12,20 @@
     <div class="profile-left">
         <div class="profile-card">
             <div class="profile-image">
+                <!-- ADD THESE DEBUG LINES TEMPORARILY -->
+                <p style="color: red; font-size: 12px;">
+                    DEBUG: {{ user.profile.get_profile_picture_url }}
+                </p>
+                <p style="color: blue; font-size: 12px;">
+                    Has pic: {{ user.profile.profile_picture|yesno:"YES,NO" }}
+                </p>
+                <p style="color: green; font-size: 12px;">
+                    Pic name: {{ user.profile.profile_picture.name }}
+                </p>
+                <!-- END DEBUG -->
+                
                 <img src="{{ user.profile.get_profile_picture_url }}" alt="{{ user.username }}'s Profile Picture">
-
+                
                 <button class="add-btn" onclick="document.getElementById('uploadModal').style.display='block'">
                     <i class="fas fa-plus"></i>
                 </button>
