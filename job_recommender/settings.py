@@ -13,6 +13,8 @@ import dj_database_url
 from pathlib import Path
 import os
 from decouple import config
+import django.views.static
+from django.urls import re_path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -143,16 +145,16 @@ if not DEBUG:
     CSRF_COOKIE_SECURE = True
 
 
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# After your MEDIA settings
-# Add this at the end
+# Add media files to static files for WhiteNoise to serve
 if not DEBUG:
-    # Force Django to serve media files in production
-    MEDIA_URL = '/media/'
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'core/static'),
+        os.path.join(BASE_DIR, 'media'),  # This makes WhiteNoise serve media files
+    ]
     
-    # Configure WhiteNoise to serve media files
-    WHITENOISE_USE_FINDERS = True
-    WHITENOISE_SKIP_COMPRESS_EXTENSIONS = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'zip', 'gz', 'tgz', 'bz2', 'tbz', 'xz', 'br', 'mp4', 'avi', 'mov']
+
+SERVE_MEDIA = True
