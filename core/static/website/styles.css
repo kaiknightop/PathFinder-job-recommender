@@ -1,156 +1,154 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f6f9;
-    text-align: center;
-    margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f9;
+  text-align: center;
+  margin: 0;
 }
 
 
 .recommend-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    background: white;
-    padding: 40px 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    padding: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 30px;
 }
 
 h1 {
-    color: #333;
-    font-size: 30px;
-    margin-bottom: 25px;
-    text-align: center;
+  color: #333;
+  font-size: 30px;
+  margin-bottom: 25px;
+  text-align: center;
 }
 
 form {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
 }
 
 input[type="text"] {
-    padding: 12px 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-    width: 60%;
-    max-width: 400px;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 60%;
+  max-width: 400px;
 }
 
 button {
-    padding: 12px 24px;
-    background-color: #6C63FF;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  padding: 12px 24px;
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #00C9A7;
-    transform: translateY(-2px);
+  background-color: #00c9a7;
+  transform: translateY(-2px);
 }
 
 /* Jobs grid layout */
 .jobs-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .job-card {
-    background-color: #f9f9f9;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .job-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .job-card h3 {
-    color: #333;
-    margin-bottom: 10px;
+  color: #333;
+  margin-bottom: 10px;
 }
 
 .job-card p {
-    color: #555;
-    margin: 5px 0;
+  color: #555;
+  margin: 5px 0;
 }
 
 .view-job-btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 16px;
-    background-color: #6C63FF;
-    color: white;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 16px;
+  background-color: #6c63ff;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .view-job-btn:hover {
-    background-color: #00C9A7;
-    transform: translateY(-2px);
+  background-color: #00c9a7;
+  transform: translateY(-2px);
 }
 
 /* Headings for sections */
 h2 {
-    color: #444;
-    margin: 30px 0 20px;
-    text-align: left;
+  color: #444;
+  margin: 30px 0 20px;
+  text-align: left;
 }
 
 /* Responsive adjustments */
 @media screen and (max-width: 480px) {
-    input[type="text"] {
-        width: 100%;
-        font-size: 14px;
-    }
+  input[type="text"] {
+    width: 100%;
+    font-size: 14px;
+  }
 
-    button {
-        width: 100%;
-        font-size: 14px;
-        padding: 10px;
-    }
+  button {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+  }
 
-    h1 {
-        font-size: 24px;
-    }
+  h1 {
+    font-size: 24px;
+  }
 
-    h2 {
-        font-size: 18px;
-    }
+  h2 {
+    font-size: 18px;
+  }
 
-    .view-job-btn {
-        width: 100%;
-        text-align: center;
-    }
+  .view-job-btn {
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 900px) {
-    .jobs-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .jobs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media screen and (max-width: 600px) {
-    .jobs-grid {
-        grid-template-columns: 1fr;
-    }
+  .jobs-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-
 .adsterra-native {
-    text-align: center;
-    margin: 25px 0;
+  text-align: center;
+  margin: 25px 0;
 }
