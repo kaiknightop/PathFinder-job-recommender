@@ -15,6 +15,7 @@ import os
 from decouple import config
 import django.views.static
 from django.urls import re_path
+import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -158,3 +159,12 @@ if not DEBUG:
     
 
 SERVE_MEDIA = True
+
+
+if 'test' in sys.argv:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': ':memory:',  # use fast in-memory DB
+        }
+    }
